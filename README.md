@@ -40,7 +40,7 @@ test ! -e .claude/skills/brief-me && test ! -L .claude/skills/brief-me && cp -R 
 
 Codex 同理，把目标路径改为 `.agents/skills/brief-me`。安装后按客户端要求重新加载技能或开启新会话；技能只能总结客户端实际提供的对话上下文。
 
-开发工作区已通过这两个项目目录的符号链接安装技能；这些本机配置不随仓库发布。克隆仓库后，请按上方说明安装。可分发压缩包见 [`dist/brief-me.zip`](dist/brief-me.zip)。
+开发工作区已通过这两个项目目录的符号链接安装技能；这些本机配置不随仓库发布。克隆仓库后，请按上方说明安装。仓库直接提供技能源码，不维护预打包 ZIP。
 
 依据：[Agent Skills 标准](https://agentskills.io/specification)、[Claude Code skills](https://code.claude.com/docs/en/skills)、[Codex skills](https://developers.openai.com/codex/skills)。技能不会自行创建一个能够读取其他客户端历史的后台服务。
 
@@ -59,10 +59,17 @@ Codex 同理，把目标路径改为 `.agents/skills/brief-me`。安装后按客
 
 视频借鉴 3Blue1Brown 的逐步推导、视觉连续性和因果解释方式，制作原创内容；不复制片段、标识或声线。输出默认为本地文件，不会自动公开发布。
 
+## 仓库结构
+
+- `skills/brief-me/`：可安装的技能入口、模式参考与客户端元数据。
+- `docs/validation.md`：验证范围、限制与后续回归检查要求。
+
+本地客户端配置、`.local/` 中的历史制作与测试材料，以及 `brief-me/` 中的日常生成产物均不纳入 Git。
+
 ## 验证与来源
 
-行为验收场景见 [`evals/cases.md`](evals/cases.md)，本次实际执行记录见 [`evals/results.md`](evals/results.md)。目录和元数据校验不等于四种模式都经过端到端验收。
+已有验证结果与限制见 [`docs/validation.md`](docs/validation.md)。目录和元数据校验不等于四种模式都经过端到端验收。
 
-本次已实测中文文字、英文合规未验证分支、PNG/SVG 图片和交互网页。视频工具不足分支已实测；本机中文语音实际生成零时长音频，因此尚未验证视频成功路径。详见执行记录。
+已实测中文文字、英文合规未验证分支、PNG/SVG 图片和交互网页，以及视频能力缺失分支。初次本机语音尝试被零时长音频阻塞；后续在不同执行权限下完成了一段机制讲解视频，并记录解码、字幕时间、画面抽查和浏览器完整播放检查。旁白尚未逐字听审，这些结果不代表所有环境都能成功或用户已经验收。
 
 灵感来自 [Andrej Karpathy 的推文](https://x.com/karpathy/status/2105819303471976479)。本次 X 直连返回 403，推文内容依据用户提供的原文截图。规范事实以 [ASD-STE100 官方资料](https://www.asd-ste100.org/) 为准。

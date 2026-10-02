@@ -7,6 +7,11 @@
 /.pi/
 /skills-lock.json
 
+# Local archives, brief outputs, and generated distribution packages.
+/.local/
+/brief-me/
+/dist/
+
 # Local environment and generated caches.
 .env
 .env.*
