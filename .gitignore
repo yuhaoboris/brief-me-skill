@@ -1,0 +1,16 @@
+# Local agent clients and development skills; the distributable skill is in skills/.
+/.agents/
+/.claude/
+/.codex/
+/.grok/
+/.hermes/
+/.pi/
+/skills-lock.json
+
+# Local environment and generated caches.
+.env
+.env.*
+!.env.example
+.DS_Store
+__pycache__/
+*.py[cod]

@@ -1,0 +1,56 @@
+[
+  {
+    "file": "audio/decision.aiff",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "sample_rate": "22050",
+          "channels": 1,
+          "duration": "0.000000"
+        }
+      ],
+      "format": {
+        "size": "4096"
+      }
+    }
+  },
+  {
+    "file": "audio/voice-check-meijia.aiff",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "sample_rate": "22050",
+          "channels": 1,
+          "duration": "0.000000"
+        }
+      ],
+      "format": {
+        "size": "4096"
+      }
+    }
+  },
+  {
+    "file": "audio/voice-check.aiff",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "sample_rate": "22050",
+          "channels": 1,
+          "duration": "0.000000"
+        }
+      ],
+      "format": {
+        "size": "4096"
+      }
+    }
+  }
+]

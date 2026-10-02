@@ -1,0 +1,68 @@
+# brief-me
+
+把当前对话的成果，变成一个人能看懂的解释。
+
+`brief-me` 是 Agent Skill。它先提炼结论、理由、真实产物和未解决问题，再交付一种形式：简化文字、解释图片、交互网页或讲解视频。默认跟随对话语言；不会把方案当作实现、把检查通过当作用户验收。
+
+## 使用
+
+在支持技能 slash command 的客户端中：
+
+```text
+/brief-me
+/brief-me text 用中文解释，面向非技术同事
+/brief-me image 画清楚刚才确定的系统边界
+/brief-me web 让我逐步查看方案和依据
+/brief-me video 用约 90 秒解释这个机制如何运作
+/brief-me text 用英语，严格按 ASD-STE100；说明合规检查范围
+```
+
+这些是给 Agent 的自然语言请求，不是独立程序的 CLI 参数。未指定形式时，Agent 根据内容和可用工具选择一种；明确指定后，不会静默换成另一种形式。
+
+**Codex 使用 `$brief-me`。** 例如 `$brief-me web 用中文总结当前对话的成果`。`/brief-me` 并不是所有客户端都支持的统一命令。
+
+## 安装
+
+可分发目录是 [`skills/brief-me/`](skills/brief-me/)，其中 [`SKILL.md`](skills/brief-me/SKILL.md) 是入口。复制整个目录，包含 `references/` 和 `agents/`，不要只复制入口文件。
+
+| 客户端 | 当前项目的技能目录 | 调用 |
+| --- | --- | --- |
+| Claude Code | `.claude/skills/brief-me/` | `/brief-me` |
+| Codex | `.agents/skills/brief-me/` | `$brief-me`，或从技能列表选择 |
+| 其他支持 Agent Skills 的客户端 | 使用该客户端文档指定的位置 | 以客户端支持的调用方式为准 |
+
+例如，在目标项目根目录复制到 Claude Code（已有同名技能时先比较内容，避免覆盖）：
+
+```sh
+mkdir -p .claude/skills
+test ! -e .claude/skills/brief-me && test ! -L .claude/skills/brief-me && cp -R /path/to/brief-me-skill/skills/brief-me .claude/skills/brief-me
+```
+
+Codex 同理，把目标路径改为 `.agents/skills/brief-me`。安装后按客户端要求重新加载技能或开启新会话；技能只能总结客户端实际提供的对话上下文。
+
+开发工作区已通过这两个项目目录的符号链接安装技能；这些本机配置不随仓库发布。克隆仓库后，请按上方说明安装。可分发压缩包见 [`dist/brief-me.zip`](dist/brief-me.zip)。
+
+依据：[Agent Skills 标准](https://agentskills.io/specification)、[Claude Code skills](https://code.claude.com/docs/en/skills)、[Codex skills](https://developers.openai.com/codex/skills)。技能不会自行创建一个能够读取其他客户端历史的后台服务。
+
+## 四种产物及现实边界
+
+| 模式 | 交付 | 运行要求 |
+| --- | --- | --- |
+| 文字 | 聊天中的简明解释，按需保存文件 | Agent 能访问当前对话 |
+| 图片 | 可查看的 SVG、PNG 等图片，按需附可编辑源文件 | 图像工具或图表渲染能力 |
+| 网页 | 可打开的 HTML，有帮助理解的真实交互 | 文件或页面产物工具；浏览器用于验证 |
+| 视频 | 原创分步视觉讲解、旁白、字幕及可播放视频 | 动画渲染、语音与视频合成能力 |
+
+各模式在使用前检查能力，不强制商业 API。缺少显式指定模式的必要能力时，报告缺失项，并将分镜、源代码等标为辅助产物；它们不能冒充完成的图片或视频。技能本身是工作指令包，不内置大模型、语音服务或视频渲染引擎。
+
+文字采用 ASD-STE100 的简化写作思路。**中文不是 ASD-STE100 合规文本**。英语严格模式需要依据完整官方规则、词典和技术词汇逐项检查；未经检查不承诺符合规范。截图是启发材料，不是规范依据。完整说明见 [文字模式](skills/brief-me/references/text.md)。
+
+视频借鉴 3Blue1Brown 的逐步推导、视觉连续性和因果解释方式，制作原创内容；不复制片段、标识或声线。输出默认为本地文件，不会自动公开发布。
+
+## 验证与来源
+
+行为验收场景见 [`evals/cases.md`](evals/cases.md)，本次实际执行记录见 [`evals/results.md`](evals/results.md)。目录和元数据校验不等于四种模式都经过端到端验收。
+
+本次已实测中文文字、英文合规未验证分支、PNG/SVG 图片和交互网页。视频工具不足分支已实测；本机中文语音实际生成零时长音频，因此尚未验证视频成功路径。详见执行记录。
+
+灵感来自 [Andrej Karpathy 的推文](https://x.com/karpathy/status/2105819303471976479)。本次 X 直连返回 403，推文内容依据用户提供的原文截图。规范事实以 [ASD-STE100 官方资料](https://www.asd-ste100.org/) 为准。
