@@ -1,4 +1,4 @@
 interface:
   display_name: "brief-me"
-  short_description: "Turn this conversation into a clear, visual brief"
-  default_prompt: "Use $brief-me to explain the outcomes of our current conversation in the most useful format."
+  short_description: "Connect the whole and details of a conversation"
+  default_prompt: "Use $brief-me to explain the relationships across our discussion, starting with the whole and letting me explore local details."

@@ -1,0 +1,12 @@
+{
+  "scratch": "/private/tmp/harness-version-check-64ZQKO",
+  "first": "index.html: 375,190 bytes; 7 个模块；5 条连接；摘录匹配。",
+  "second": "index.html: 381,041 bytes; 7 个模块；5 条连接；摘录匹配。",
+  "restore": "已恢复网页 v001。源码仍保留工作版本；归档源码位于 versions/v001/。",
+  "versions": [
+    "v001",
+    "v002"
+  ],
+  "restoredExactly": true,
+  "current": "v001"
+}

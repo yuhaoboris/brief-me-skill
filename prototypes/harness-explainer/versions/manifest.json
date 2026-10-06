@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "topic": "01a08e14-0a4a-7bf0-a004-b21d66401809",
+  "current": "v003",
+  "versions": [
+    {
+      "id": "v001",
+      "date": "2026-10-05",
+      "changes": "首稿：核心结构、关系解释和原文依据。",
+      "sourceHash": "5a559c6cbf2a55479eeb0700eda6e6ae81529669b92a60344bb41ff0d38aa584",
+      "htmlHash": "3991840a25ffa3e3d4a5c59a5d87668af0e8ec786935680a2497787f42a6f3ad"
+    },
+    {
+      "id": "v002",
+      "date": "2026-10-05",
+      "changes": "精简打包样式；内容和交互保持不变。",
+      "sourceHash": "66d49d04a6d4cde9d236967b5b63c3a02a31f657bbdf6b6023e9853227ecc6ed",
+      "htmlHash": "14ef17059fb2670c5f0763e11b368815e209c50647ce31f7be6451ffcb13fa3a"
+    },
+    {
+      "id": "v003",
+      "date": "2026-10-06",
+      "changes": "局部成为主视图；七个模块补齐执行流程、内部结构与对外关系。补入原分析附件依据，保留局部阅读位置。",
+      "sourceHash": "7a16728b833b5620e44fe47d4e7c47521eaae005e9c765db7d31829d5c7fa97f",
+      "htmlHash": "56ce6e65b3bc2245ded8817f37050c99f03f79443ab2266514b692a7ae2626a6",
+      "acceptance": {
+        "status": "accepted",
+        "by": "user",
+        "date": "2026-10-06",
+        "statement": "验收通过",
+        "scope": "Harness v003：整体总览、局部主视图、局部流程/结构/对外关系及简洁表达"
+      }
+    }
+  ]
+}

@@ -12,7 +12,7 @@ ASD-STE100 is a controlled **English** language with writing rules and a diction
 | English, normal brief | English drafted toward STE rules, using consistent technical terms | STE-informed draft; full compliance not verified |
 | Explicit strict ASD-STE100 | English checked against the available complete official issue, its dictionary, and documented technical vocabulary | State the issue, review performed, and any unresolved deviations |
 
-For a normal Chinese brief, one unobtrusive note is enough: “采用 STE 简化写作原则；中文不属于 ASD-STE100 合规文本。” Avoid repeating it in every section or adding it to other output modes.
+For ordinary Chinese briefs, apply these writing principles without adding a standards disclaimer. Explain the compliance boundary when the user asks about STE or when it affects a claim.
 
 For a strict request, identify the standard issue in use. Obtain an authorized copy if available, without bypassing access or licensing. Review approved words for both their permitted meaning and part of speech; validate technical nouns and technical verbs under that issue's rules. If the complete rules or dictionary are unavailable, deliver a useful draft with “full ASD-STE100 compliance unverified” and identify the missing check. Do not call a model self-check or a sentence-length script certification. If strict STE and Chinese are both requested, explain the incompatibility and ask which requirement takes priority; a Chinese adaptation may accompany an English draft if useful.
 
